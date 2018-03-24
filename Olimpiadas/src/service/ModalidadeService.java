@@ -5,7 +5,7 @@ import dao.ModalidadeDAO;
 public class ModalidadeService {
    ModalidadeDAO  dao = new ModalidadeDAO();
 
-   public int Modalidade(Modalidade modalidade) {
+   public int criar(Modalidade modalidade) {
 		return dao.criar(modalidade);
 	}
 	

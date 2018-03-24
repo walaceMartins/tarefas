@@ -13,8 +13,8 @@ USE `Olimpiadas` ;
 CREATE TABLE IF NOT EXISTS `Olimpiadas`.`Pais` (
   `idPais` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
-  `populacao`BIGINT(10000) NOT NULL,
-  `area` DOUBLE(223131.33)  NOT NULL,
+  `populacao`BIGINT(100) NOT NULL,
+  `area` DOUBLE(1,3)  NOT NULL,
   PRIMARY KEY (`idPais`))
 ENGINE = InnoDB;
 

@@ -5,7 +5,7 @@ import model.Olimpiada;
  public class OlimpiadaService {
 	 OlimpiadaDAO dao = new OlimpiadaDAO();
    
-   public int Olimpiada(Olimpiada olimpiada) {
+   public int criar(Olimpiada olimpiada) {
 		return dao.criar(olimpiada);
 	}
 	

@@ -1,34 +1,34 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import model.Olimpiada;
-import service.OlimpiadaService;
+import model.Modalidade;
+import service.ModalidadeService;
 
-FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class OlimpiadaTest {
-	Olimpiada olimpiada, copia;
-	OlimpiadaService olimpiadaService;
+	Modalidade modalidade, copia;
+	ModalidadeService modalidadeService;
 	static int id = 0;
+
 	@Before
 	public void setUp() throws Exception {
 		System.out.println("setup");
-		Olimpiada = new Olimpiada();
-		olimpiada.setId(id);
-		olimpiada.setOuro("1");
-		olimpiada.setPrata("2");
-		olimpiada.setBronze("3");
-		copia = new Olimpiada();
+		modalidade = new Modalidade();
+		modalidade.setId(id);
+		modalidade.setNome("salto com vara");
+		modalidade.setTipo("inverno");
+		copia = new Modalidade();
 		copia.setId(id);
-		copia.setOuro("1");
-		copia.setPrata("2");
-		copia.setBronze("3");
-		OlimpiadaService = new OlimpiadaService();
-		System.out.println(olimpiada);
+		copia.setNome("salto com vara");
+		copia.setTipo("inverno");
+		modalidadeService = new ModalidadeService();
+		System.out.println(modalidade);
 		System.out.println(copia);
 		System.out.println(id);
 	}
@@ -36,44 +36,42 @@ public class OlimpiadaTest {
 	@Test
 	public void test00Carregar() {
 		System.out.println("carregar");
-		Olimpiada fixture = new Olimpiada();
+		Modalidade fixture = new Modalidade();
 		fixture.setId(1);
-		fixture.setOuro("2");
-		fixture.setPrata("3");
-		fixture.setBronze("1");
-		OlimpiadaService novoService = new OlimpiadaService();
-		Olimpiada novo = novoService.carregar(1);
+		fixture.setNome("salto com vara");
+		fixture.setTipo("inverno");
+		ModalidadeService novoService = new ModalidadeService();
+		Modalidade novo = novoService.carregar(1);
 		assertEquals("testa inclusao", novo, fixture);
 	}
 
 	@Test
 	public void test01Criar() {
 		System.out.println("criar");
-		id = olimpiadaService.criar(olimpiada);
+		id = modalidadeService.criar(modalidade);
 		System.out.println(id);
 		copia.setId(id);
-		assertEquals("testa criacao", olimpiada, copia);
+		assertEquals("testa criacao", modalidade, copia);
 	}
 
 	@Test
 	public void test02Atualizar() {
 		System.out.println("atualizar");
-		olimpiada.setBronze("12");
-		copia.setBronze("12");		
-		olimpiadaService.atualizar(olimpiada);
-		olimpiada = olimpiadaService.carregar(olimpiada.getId());
-		assertEquals("testa atualizacao",olimpiada, copia);
+		modalidade.setnome("Ginástica Rítmica");
+		copia.setnome("Ginástica Rítmica");		
+		modalidadeService.atualizar(modalidade);
+		modalidade = modalidadeService.carregar(modalidade.getId());
+		assertEquals("testa atualizacao",modalidade, copia);
 	}
 
 	@Test
 	public void test03Excluir() {
 		System.out.println("excluir");
 		copia.setId(-1);
-		copia.setOuro(0);
-		copia.setPrata(0);
-		copia.setBronze(0);
-		olimpiadaService.excluir(id);
-		olimpiada =olimpiadaService.carregar(id);
-		assertEquals("testa exclusao", olimpiada, copia);
+		copia.setNome(null);
+		copia.setTipo(null);
+		modalidadeService.excluir(id);
+		modalidade =modalidadeService.carregar(id);
+		assertEquals("testa exclusao", modalidade, copia);
 	}
 }
