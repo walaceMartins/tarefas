@@ -1,59 +1,39 @@
 package model;
 
-import java.io.Serializable;
-
-public class Pais implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Pais {
 	private int id;
 	private String nome;
-	private long populacao;
+	private double populacao;
 	private double area;
-
-	public Pais() {
-	}
-
+	
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public long getPopulacao() {
+	public double getPopulacao() {
 		return populacao;
 	}
-
-	public void setPopulacao(long populacao) {
+	public void setPopulacao(double populacao) {
 		this.populacao = populacao;
 	}
-
 	public double getArea() {
 		return area;
 	}
-
 	public void setArea(double area) {
 		this.area = area;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
-		return "Pais [id=" + id + ", nome=" + nome + ", população=" + populacao
-				+ ", =" + area + "]";
+		return "Pais [id=" + id + ", nome=" + nome + ", populacao=" + populacao + ", area=" + area + "]";
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -63,10 +43,11 @@ public class Pais implements Serializable {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + id;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + (int) (populacao ^ (populacao >>> 32));
+		temp = Double.doubleToLongBits(populacao);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -85,8 +66,10 @@ public class Pais implements Serializable {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (populacao != other.populacao)
+		if (Double.doubleToLongBits(populacao) != Double.doubleToLongBits(other.populacao))
 			return false;
 		return true;
 	}
+	
+	
 }

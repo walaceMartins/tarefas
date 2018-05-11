@@ -1,43 +1,35 @@
 package dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import model.Modalidade;
 import model.Olimpiada;
- 
+import model.Pais;
+
 public class OlimpiadaDAO {
-	public int criar(Olimpiada olimpiada) {
-		String sqlInsert = "INSERT INTO Olimpiada(ouro,prata,bronze) VALUES (?, ?, ?)";
+	public void criar(Olimpiada olim) {
+		String sqlInsert = "INSERT INTO pais(nome, populacao, area) VALUES (?, ?, ?)";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
-			stm.setInt(1,olimpiada.getOuro());
-			stm.setInt(2,olimpiada.getPrata());
-			stm.setInt(3,olimpiada.getBronze());
+			stm.setString(1, olim.getNome());
+			stm.setString(2, olim.getTipo());
 			stm.execute();
-			String sqlQuery = "SELECT LAST_INSERT_ID()";
-			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
-					ResultSet rs = stm2.executeQuery();) {
-				if (rs.next()) {
-					olimpiada.setId(rs.getInt(1));
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return olimpiada.getId();
 	}
 
-	public void atualizar(Olimpiada olimpiada) {
-		String sqlUpdate = "UPDATE olimpiada SET ouro=?, prata=?, bronze=? WHERE id=?";
+	public void atualizar(Olimpiada olim) {
+		String sqlUpdate = "UPDATE pais SET nome=?, populacao=?, area=? WHERE id=?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
-			stm.setInt(1,olimpiada.getOuro());
-			stm.setInt(2,olimpiada.getPrata());
-			stm.setInt(3,olimpiada.getBronze());
+			stm.setString(1, olim.getNome());
+			stm.setString(2, olim.getTipo());
 			stm.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -45,7 +37,7 @@ public class OlimpiadaDAO {
 	}
 
 	public void excluir(int id) {
-		String sqlDelete = "DELETE FROM olimpiada WHERE id = ?";
+		String sqlDelete = "DELETE FROM pais WHERE id = ?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlDelete);) {
@@ -57,23 +49,26 @@ public class OlimpiadaDAO {
 	}
 
 	public Olimpiada carregar(int id) {
-		Olimpiada olimpiada = new Olimpiada();
-		olimpiada.setId(id);
-		String sqlSelect = "SELECT ouro, prata, bronze FROM olimpiada WHERE olimpiada.id = ?";
+		Olimpiada olim = new Olimpiada();
+		Pais pais = new Pais();
+		Modalidade mod = new Modalidade();
+		
+		mod.setId(id);
+		pais.setId(id);
+		String sqlSelect = "SELECT oura, prata, bronze,  FROM olimpiada WHERE olimpiada.idAno = ? and olimpiada.idModalidade = ? and olimpiada.idPais = ?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
-			stm.setInt(1, olimpiada.getId());
+			stm.setInt(1, pais.getId());
+			stm.setInt(2, mod.getId());
 			try (ResultSet rs = stm.executeQuery();) {
 				if (rs.next()) {
-					olimpiada.setOuro(rs.getInt("ouro"));
-					olimpiada.setPrata(rs.getInt("prata"));
-					olimpiada.setBronze(rs.getInt("bronze"));
+					olim.setNome(rs.getString("nome"));
+					olim.setTipo(rs.getString("tipo"));
 				} else {
-					olimpiada.setId(-1);
-					olimpiada.setOuro(0);
-					olimpiada.setPrata(0);
-					olimpiada.setBronze(0);
+					pais.setId(-1);
+					olim.setNome(null);
+					olim.setTipo(null);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -81,7 +76,6 @@ public class OlimpiadaDAO {
 		} catch (SQLException e1) {
 			System.out.print(e1.getStackTrace());
 		}
-		return olimpiada;
+		return olim;
 	}
-
 }
