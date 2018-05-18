@@ -15,22 +15,24 @@
 <c:import url="Menu.jsp"/>
 <!-- Container Principal -->
 <div id="main" class="container">
-<h3 class="page-header">Cadastra Modalidade #${olimpiada.id}</h3>
+<h3 class="page-header">Cadastra Modalidade ${Modalidade.id}</h3>
 <div class="row">
 <div class="col-md-12">
 <p><strong>Nome da Modalidade</strong>
 </p>
 <p>
-${olimpiada.nome}
+${Modalidade.nome}
 </p>
 </div>
 </div>
 <div class="row">
 <div class="col-md-12">
-<p><strong>Tipo de modalidade</strong>
+<p><strong>colocação da modalidade</strong>
 </p>
 <p>
-${olimpiada.tipo}
+${Modalidade.ouro}
+${Modalidade.prata}
+${Modalidade.bronze}
 </p>
 </div>
 <hr />

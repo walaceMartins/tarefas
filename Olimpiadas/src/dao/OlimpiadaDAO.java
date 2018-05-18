@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.Modalidade;
 import model.Olimpiada;
@@ -78,4 +79,56 @@ public class OlimpiadaDAO {
 		}
 		return olim;
 	}
-}
+	public ArrayList<Modalidade> listarModalidade() {
+		Modalidade mod;
+		ArrayList<Modalidade> lista = new ArrayList<>();
+		String sqlSelect = "SELECT nome,ouro,prata,bronze FROM modalidade";
+		// usando o try with resources do Java 7, que fecha o que abriu
+		try (Connection conn = ConnectionFactory.obtemConexao();
+		PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+		try (ResultSet rs = stm.executeQuery();) {
+		while (rs.next()) {
+		mod = new Modalidade();
+		mod.setId(rs.getInt("id"));
+		mod.setNome(rs.getString("nome"));
+		mod.setOuro(rs.getString("ouro"));
+		mod.setPrata(rs.getString("prata"));
+		mod.setBronze(rs.getString("bronze"));
+		lista.add(mod);
+		}
+		} catch (SQLException e) {
+		e.printStackTrace();
+		}
+		} catch (SQLException e1) {
+		System.out.print(e1.getStackTrace());
+		}
+		return lista;
+		}
+		public ArrayList<Modalidade> listarModalidade(String chave) {
+		Modalidade mod;
+		ArrayList<Modalidade> lista = new ArrayList<>();
+		String sqlSelect = "SELECT nome,ouro,prta, bronze FROM modalidade where upper(nome) like ?";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+		PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+		stm.setString(1, "%" + chave.toUpperCase() + "%");
+		try (ResultSet rs = stm.executeQuery();) {
+		while (rs.next()) {
+		mod = new Modalidade();
+		mod.setId(rs.getInt("id"));
+		mod.setNome(rs.getString("nome"));
+		mod.setOuro(rs.getString("ouro"));
+		mod.setPrata(rs.getString("prata"));
+		mod.setBronze(rs.getString("bronze"));
+		lista.add(mod);
+		}
+		} catch (SQLException e) {
+		e.printStackTrace();
+		}
+		} catch (SQLException e1) {
+		System.out.print(e1.getStackTrace());
+		}
+		return lista;
+		}
+	}
+

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Olimpiada {
 	private String nome;
 	private String tipo;
@@ -55,6 +57,4 @@ public class Olimpiada {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
 }

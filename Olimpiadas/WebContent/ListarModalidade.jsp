@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initialscale=1">
-<title>Buscar Pais</title>
+<title>Buscar Modalidade</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 </head>
@@ -22,11 +22,11 @@
 						aria-label="Fechar">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="modalLabel">Excluir Pais</h4>
+					<h4 class="modal-title" id="modalLabel">Excluir Modalidade</h4>
 				</div>
-				<div class="modal-body">Deseja realmente excluir este Pais?</div>
+				<div class="modal-body">Deseja realmente excluir esta Modalidade?</div>
 				<div class="modal-footer">
-					<form action="ManterPais.do" method="post">
+					<form action="ManterModalidade.do" method="post">
 						<input type="hidden" name="id" id="id_excluir" />
 						<button type="submit" class="btn btnprimary" name="acao"
 							value="Excluir">Sim</button>
@@ -44,14 +44,14 @@
 		<form action="listar_pais.do" method="post">
 			<div id="top" class="row">
 				<div class="col-md-3">
-					<h2>Pais</h2>
+					<h2>Modalidade</h2>
 				</div>
 				<div class="col-md-6">
 					<div class="input-group h2">
 						<input name="data[search]" class="formcontrol" id="search"
 							type="text"
-							placeholder="Pesquisar Pais (deixe
-vazio para trazer todos)">
+							placeholder="Pesquisar Modalidade(deixe
+                        vazio para trazer todos)">
 						<span class="input-group-btn">
 							<button class="btn btn-primary" type="submit" name="acao"
 								value="buscar">
@@ -62,8 +62,7 @@ vazio para trazer todos)">
 				</div>
 				<div class="col-md-3">
 					<a href="CriarPais.jsp" class="btn btnprimary
-pull-right h2">Novo
-						Pais</a>
+                   pull-right h2">Nova Modalidade</a>
 				</div>
 			</div>
 			<!-- /#top -->
@@ -76,27 +75,29 @@ pull-right h2">Novo
 						<thead>
 							<tr>
 								<th>Nome</th>
-								<th>População</th>
-								<th>Area</th>
+								<th>Ouro</th>
+								<th>Prata</th>
+								<th>Bronze</th>
 								<th class="actions">Ações</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="pais" items="${lista }">
+							<c:forEach var="modalidade" items="${lista }">
 								<tr>
-									<td>${pais.nome }</td>
-									<td>${pais.populacao }</td>
-									<td>${pais.area }</td>
+									<td>${modalidade.nome }</td>
+									<td>${modalidade.ouro }</td>
+									<td>${modalidade.prata }</td>
+									<td>${modalidade.bronze }</td>
 									<td class="actions"><a class="btn btn-success
-btn-xs"
-										href="ManterPais.do?acao=Visualizar&id=${pais.id}">Visualizar</a>
+                                        btn-xs"
+										href="ManterModalidade.do?acao=Visualizar&id=${modalidade.id}">Visualizar</a>
 										<a class="btn btn-warning
-btn-xs"
-										href="ManterPais.do?acao=Editar&id=${pais.id }">Editar</a>
-										<button id="btn${pais.id
-}%>" type="button"
+                                        btn-xs"
+										href="Mantermodalidade.do?acao=Editar&id=${modalidade.id }">Editar</a>
+										<button id="btn${modalidade.id
+                                        }%>" type="button"
 											class="btn btn-danger btn-xs" data-toggle="modal"
-											datatarget="#delete-modal" data-cliente="${pais.id }">Excluir</button>
+											datatarget="#delete-modal" data-cliente="${modalidade.id }">Excluir</button>
 									</td>
 								</tr>
 							</c:forEach>
@@ -113,7 +114,7 @@ btn-xs"
 						<li class="disabled"><a>1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
-						<li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+						<li class="next"><a href="ListarModalidade.jsp" rel="next">Próximo &gt;</a></li>
 					</ul>
 					<!-- /.pagination -->
 				</div>
