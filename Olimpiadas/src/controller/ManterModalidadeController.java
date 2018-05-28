@@ -39,11 +39,11 @@ public class ManterModalidadeController extends HttpServlet {
 				id = Integer.parseInt(pNome);
 				} catch (NumberFormatException e) {
 				}
-			Modalidade mod = new Modalidade();
-			mod.setNome(pNome);
-			mod.setOuro(pOuro);
-			mod.setPrata(pPrata);
-			mod.setBronze(pBronze);
+			Modalidade modalidade = new Modalidade();
+			modalidade.setNome(pNome);
+			modalidade.setOuro(pOuro);
+			modalidade.setPrata(pPrata);
+			modalidade.setBronze(pBronze);
 
 			//instanciar o service
 			OlimpiadaService os = new OlimpiadaService();
@@ -51,35 +51,35 @@ public class ManterModalidadeController extends HttpServlet {
 			HttpSession session = request.getSession();
 
 			if (pAcao.equals("Criar")) {
-				os.criar1(mod);
+				os.criar(modalidade);
 				ArrayList<Modalidade>lista = new ArrayList<>();
-				lista.add(mod);
+				lista.add(modalidade);
 				session.setAttribute("lista", lista);
 				view = request.getRequestDispatcher("ListarModalidade.jsp");
 				} else if (pAcao.equals("Excluir")) {
-				os.excluir(mod.getId());
+				os.excluir(modalidade.getId());
 				ArrayList<Modalidade> lista =
 				(ArrayList<Modalidade>)session.getAttribute("lista");
-				lista.remove(busca(mod, lista));
+				lista.remove(busca(modalidade, lista));
 				session.setAttribute("lista", lista);
 				view = request.getRequestDispatcher("ListarModalidade.jsp");
 				} else if (pAcao.equals("Alterar")) {
-				os.atualizar1(mod);
+				os.atualizar(modalidade);
 				ArrayList<Modalidade> lista =
 				(ArrayList<Modalidade>)session.getAttribute("lista");
-				int pos = busca(mod, lista);
+				int pos = busca(modalidade, lista);
 				lista.remove(pos);
-				lista.add(pos, mod);
+				lista.add(pos, modalidade);
 				session.setAttribute("lista", lista);
-				request.setAttribute("modalidade", mod);
+				request.setAttribute("modalidade", modalidade);
 				view = request.getRequestDispatcher("VisualizarModalidade.jsp");
 				} else if (pAcao.equals("Visualizar")) {
-				mod = os.carregar(mod.getId());
-				request.setAttribute("modalidade", mod);
+					modalidade = os.carregar(modalidade.getId());
+				request.setAttribute("modalidade", modalidade);
 				view = request.getRequestDispatcher("VisualizarModalidade.jsp");
 				} else if (pAcao.equals("Editar")) {
-				mod = os.carregar(mod.getId());
-				request.setAttribute("modalidade", mod);
+					modalidade = os.carregar(modalidade.getId());
+				request.setAttribute("modalidade", modalidade);
 				view = request.getRequestDispatcher("AlterarModalidade.jsp");
 				}
 				view.forward(request, response);
