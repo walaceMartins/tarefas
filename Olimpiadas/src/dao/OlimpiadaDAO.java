@@ -11,26 +11,26 @@ import model.Olimpiada;
 import model.Pais;
 
 public class OlimpiadaDAO {
-	public void criar(Olimpiada olim) {
+	public void criar(Olimpiada olimpiada) {
 		String sqlInsert = "INSERT INTO pais(nome, populacao, area) VALUES (?, ?, ?)";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
-			stm.setString(1, olim.getNome());
-			stm.setString(2, olim.getTipo());
+			stm.setString(1, olimpiada.getNome());
+			stm.setString(2, olimpiada.getTipo());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void atualizar(Olimpiada olim) {
+	public void atualizar(Olimpiada olimpiada) {
 		String sqlUpdate = "UPDATE pais SET nome=?, populacao=?, area=? WHERE id=?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
-			stm.setString(1, olim.getNome());
-			stm.setString(2, olim.getTipo());
+			stm.setString(1, olimpiada.getNome());
+			stm.setString(2, olimpiada.getTipo());
 			stm.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,26 +50,26 @@ public class OlimpiadaDAO {
 	}
 
 	public Olimpiada carregar(int id) {
-		Olimpiada olim = new Olimpiada();
+		Olimpiada olimpiada = new Olimpiada();
 		Pais pais = new Pais();
-		Modalidade mod = new Modalidade();
+		Modalidade modalidade = new Modalidade();
 		
-		mod.setId(id);
+		modalidade.setId(id);
 		pais.setId(id);
 		String sqlSelect = "SELECT oura, prata, bronze,  FROM olimpiada WHERE olimpiada.idAno = ? and olimpiada.idModalidade = ? and olimpiada.idPais = ?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 			stm.setInt(1, pais.getId());
-			stm.setInt(2, mod.getId());
+			stm.setInt(2, modalidade.getId());
 			try (ResultSet rs = stm.executeQuery();) {
 				if (rs.next()) {
-					olim.setNome(rs.getString("nome"));
-					olim.setTipo(rs.getString("tipo"));
+					olimpiada.setNome(rs.getString("nome"));
+					olimpiada.setTipo(rs.getString("tipo"));
 				} else {
 					pais.setId(-1);
-					olim.setNome(null);
-					olim.setTipo(null);
+					olimpiada.setNome(null);
+					olimpiada.setTipo(null);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -77,10 +77,10 @@ public class OlimpiadaDAO {
 		} catch (SQLException e1) {
 			System.out.print(e1.getStackTrace());
 		}
-		return olim;
+		return olimpiada;
 	}
 	public ArrayList<Modalidade> listarModalidade() {
-		Modalidade mod;
+		Modalidade modaliadade;
 		ArrayList<Modalidade> lista = new ArrayList<>();
 		String sqlSelect = "SELECT nome,ouro,prata,bronze FROM modalidade";
 		// usando o try with resources do Java 7, que fecha o que abriu
@@ -88,13 +88,13 @@ public class OlimpiadaDAO {
 		PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 		try (ResultSet rs = stm.executeQuery();) {
 		while (rs.next()) {
-		mod = new Modalidade();
-		mod.setId(rs.getInt("id"));
-		mod.setNome(rs.getString("nome"));
-		mod.setOuro(rs.getString("ouro"));
-		mod.setPrata(rs.getString("prata"));
-		mod.setBronze(rs.getString("bronze"));
-		lista.add(mod);
+		Modalidade modalidade = new Modalidade();
+		modalidade.setId(rs.getInt("id"));
+		modalidade.setNome(rs.getString("nome"));
+		modalidade.setOuro(rs.getString("ouro"));
+		modalidade.setPrata(rs.getString("prata"));
+		modalidade.setBronze(rs.getString("bronze"));
+		lista.add(modalidade);
 		}
 		} catch (SQLException e) {
 		e.printStackTrace();
@@ -114,13 +114,13 @@ public class OlimpiadaDAO {
 		stm.setString(1, "%" + chave.toUpperCase() + "%");
 		try (ResultSet rs = stm.executeQuery();) {
 		while (rs.next()) {
-		mod = new Modalidade();
-		mod.setId(rs.getInt("id"));
-		mod.setNome(rs.getString("nome"));
-		mod.setOuro(rs.getString("ouro"));
-		mod.setPrata(rs.getString("prata"));
-		mod.setBronze(rs.getString("bronze"));
-		lista.add(mod);
+		Modalidade modalidade = new Modalidade();
+		modalidade.setId(rs.getInt("id"));
+		modalidade.setNome(rs.getString("nome"));
+		modalidade.setOuro(rs.getString("ouro"));
+		modalidade.setPrata(rs.getString("prata"));
+		modalidade.setBronze(rs.getString("bronze"));
+		lista.add(modalidade);
 		}
 		} catch (SQLException e) {
 		e.printStackTrace();

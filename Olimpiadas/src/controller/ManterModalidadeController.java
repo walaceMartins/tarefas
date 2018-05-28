@@ -64,7 +64,7 @@ public class ManterModalidadeController extends HttpServlet {
 				session.setAttribute("lista", lista);
 				view = request.getRequestDispatcher("ListarModalidade.jsp");
 				} else if (pAcao.equals("Alterar")) {
-				os.atualizar(modalidade);
+				os.atualizar1(modalidade);
 				ArrayList<Modalidade> lista =
 				(ArrayList<Modalidade>)session.getAttribute("lista");
 				int pos = busca(modalidade, lista);

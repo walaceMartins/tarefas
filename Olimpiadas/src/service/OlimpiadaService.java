@@ -10,12 +10,12 @@ public class OlimpiadaService {
 static OlimpiadaDAO dao = new OlimpiadaDAO();
 
 	//olimpiada
-	public void criar(Olimpiada olim) {
-		dao.criar(olim);
+	public void criar(Olimpiada olimpiada) {
+		dao.criar(olimpiada);
 	}
 	
-	public void atualizar(Olimpiada olim){
-		dao.atualizar(olim);
+	public void atualizar(Olimpiada olimpiada){
+		dao.atualizar(olimpiada);
 	}
 	
 	public void excluir(int id){
@@ -27,12 +27,12 @@ static OlimpiadaDAO dao = new OlimpiadaDAO();
 		return dao.carregar(id);
 	}
 	// modalidade
-	public void criar1(Olimpiada mod) {
-		dao.criar(mod);
+	public void criar(Olimpiada modalidade) {
+		dao.criar(modalidade);
 	}
 	
-	public void atualizar1(Olimpiada mod){
-		dao.atualizar(mod);
+	public void atualizar(Olimpiada modalidade){
+		dao.atualizar(modalidade);
 	}
 	
 	
