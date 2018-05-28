@@ -28,7 +28,7 @@
                             </div>
                             <div class="modal-footer">
                                 <form action="ManterCliente.do" method="post">
-                                    <input type="hidden" name="id" value="${olimpiada.id }" />
+                                    <input type="hidden" name="id" value="${modalidade.id }" />
                                     <button type="submit" class="btn btn-primary" name="acao" value="Excluir">Sim</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
                                 </form>
@@ -41,7 +41,7 @@
 				<c:import url="Menu.jsp"/>
                 <!-- Container Principal -->
                 <div id="main" class="container">
-                    <h3 class="page-header">Visualizar Olimpiada ${olimpiada.id }</h3>
+                    <h3 class="page-header">Visualizar Olimpiada ${modalidade.id }</h3>
                     <div class="row">
                         <div class="col-md-12">
                             <p><strong>Nome</strong>
@@ -62,7 +62,7 @@
                     <hr />
                     <div id="actions" class="row">
                         <div class="col-md-12">
-                            <a href="ManterModalidade.do?acao=Editar&id=${olimpiada.id }" class="btn btn-primary">Editar</a>
+                            <a href="ManterModalidade.do?acao=Editar&id=${modalidade.id }" class="btn btn-primary">Editar</a>
                             <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                             <a href="ListarModalidade.jsp" class="btn btn-default">Voltar</a>
                         </div>

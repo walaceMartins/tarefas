@@ -85,12 +85,12 @@ pull-right h2">Novo Olimpiada</a>
 									<td>${olimpiada.nome }</td>
 									<td>${olimpiada.tipo }</td>
 									<td class="actions"><a class="btn btn-success btn-xs"
-										href="ManterOlimpiada.do?acao=Visualizar&id=${olimpiada.id}">Visualizar</a>
+										href="ManterOlimpiada.do?acao=Visualizar&id=${modalidade.id}">Visualizar</a>
 										<a class="btn btn-warning btn-xs"
-										href="ManterOlimpiada.do?acao=Editar&id=${olimpiada.id }">Editar</a>
-										<button id="btn${olimpiada.id }%>" type="button"
+										href="ManterOlimpiada.do?acao=Editar&id=${modalidade.id }">Editar</a>
+										<button id="btn${modalidade.id }%>" type="button"
 											class="btn btn-danger btn-xs" data-toggle="modal"
-											datatarget="#delete-modal" data-cliente="${olimpiada.id }">Excluir</button>
+											datatarget="#delete-modal" data-cliente="${modalidade.id }">Excluir</button>
 									</td>
 								</tr>
 							</c:forEach>
