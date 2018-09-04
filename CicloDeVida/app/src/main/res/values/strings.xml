@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CicloDeVida</string>
+    <string name="activty_a">Activty A</string>
+    <string name="btn_start_a_label">Iniciar A</string>
+    <string name="btn_start_b_label">Iniciar B</string>
+    <string name="btn_start_c_label">Iniciar C</string>
+    <string name="btn_start_dialog_label">Diálogo</string>
+
+    <string name="btn_finish_a_label">Fecha A</string>
+    <string name="btn_finish_b_label">Fecha B</string>
+    <string name="btn_finish_c_label">Fecha C</string>
+    <string name="btn_finish_dialogo_label">Diálogo</string>
+    <string name="lifecycle_method_lisd">Listar de Método</string>
+    <string name="activtyA"
+</resources>

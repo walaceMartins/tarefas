@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:backgound="@color/dark_blue"
+    android:padding="@dimin/padding_medium"
+    tools:context=".ActivityA">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activty_a"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/font_large"
+        android:textColor="@color/light_blue"
+        android:paddingBottom="@dimen/paddin_large"
+
+        <relativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravty="center_horizontal"
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            android:id="@+id/btn_start_b"
+            android:text="@string/btn_start_b_label"
+            android:onClick="startActivityB"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_start_c"
+        android:text="@string/btn_start_c_label"
+        android:onClick="startActivityC"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Finish_a"
+        android:text="@strig/btn_finish_a_label"
+        android:onClick="startActivityA"
+        android:layout_toRightOf="@id/btn_start_c" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Finish_a"
+        android:text="@strig/btn_finish_a_label"
+        android:onClick="startDialog"
+        android:layout_toRightOf="@id/btn_start_c" />
+
+</RelativeLayout>
+     <textView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:text_size="@dimen/font_medium"
+     android:text="@string/lifecycle_method_list"
+     android:textColor="@color/light_blue"
+
+     <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="160dp"
+     <textView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:id="@+id/btn_view_a"
+     android:blackground="@color/black"
+     android:padding="@dimin/padding_small"
+     android:typeFace="manospace"
+</LinearLayout>
