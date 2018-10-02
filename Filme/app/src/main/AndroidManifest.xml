@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.usjt.cervejap2" >
+    package="br.usjt.filme" >
 
     <application
         android:allowBackup="true"
@@ -17,12 +17,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListaCervejaActivity"
-            android:label="@string/title_activity_lista_cerveja" >
+            android:name=".ListaFilmeActivity"
+            android:label="@string/title_activity_lista_filme" >
         </activity>
         <activity
-            android:name=".DetalheCervejaActivity"
-            android:label="@string/title_activity_detalhe_cerveja" >
+            android:name=".DetalheFilmeActivity"
+            android:label="@string/title_activity_detalhe_filme" >
         </activity>
     </application>
 

@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.TreeSet;
 
-/**
- * Created by asbonato on 9/7/15.
- */
+
 public class SectionIndexBuilder {
     //cria um array de cabecalhos unicos de secao; os dados devem estar ordenados por nome
     public static Object[] BuildSectionHeaders(Filme[] filmes)

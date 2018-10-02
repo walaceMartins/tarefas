@@ -30,7 +30,7 @@
                 android:lines="1"
                 android:textStyle="bold"
                 android:text="@string/label_filme_nome"
-                android:id="@+id/txt_cerveja_nome"
+                android:id="@+id/txt_filme_nome"
                 />
 
         </LinearLayout>
@@ -38,7 +38,7 @@
         <ImageView
             android:layout_width="220dp"
             android:layout_height="220dp"
-            android:id="@+id/cerveja_image_view"
+            android:id="@+id/filme_image_view"
             android:layout_gravity="center"
             android:adjustViewBounds="true" />
 
@@ -77,7 +77,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_filme_estilo"
+                android:text="@string/label_filme_genero"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:paddingRight="15px"
                 />
@@ -88,32 +88,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:lines="1"
                 android:textStyle="bold"
-                android:id="@+id/txt_filme_estilo"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/label_filme_cor"
-                android:paddingRight="15px"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:lines="1"
-                android:textStyle="bold"
-                android:id="@+id/txt_filme_cor"
+                android:id="@+id/txt_filme_genero"
                 />
 
         </LinearLayout>

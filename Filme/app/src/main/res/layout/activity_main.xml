@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_cerveja_estilo"
+                android:text="@string/label_filme_genero"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:paddingRight="15px"
                 />
@@ -32,8 +32,8 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/estilos"
-                android:id="@+id/dropdown_estilos"
+                android:entries="@array/generos"
+                android:id="@+id/dropdown_generos"
                 android:paddingBottom="8dp"
                 />
         </LinearLayout>
@@ -44,13 +44,6 @@
             android:layout_height="wrap_content"
             android:padding="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_cerveja_cor"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:paddingRight="15px"
-                />
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +61,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_cerveja_pais"
+                android:text="@string/label_filme_pais"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:paddingRight="15px"
                 />
@@ -92,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceButton"
                 android:text="@string/botao_enviar"
-                android:onClick="consultarCervejas"
+                android:onClick="consultarFilmes"
                 android:id="@+id/botao_enviar"/>
 
         </LinearLayout>
@@ -108,10 +101,11 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceButton"
                 android:text="@string/botao_enviar_melhor"
-                android:onClick="consultarCervejasMelhor"
+                android:onClick="consultarFilmesMelhor"
                 android:id="@+id/botao_enviar_melhor"/>
 
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

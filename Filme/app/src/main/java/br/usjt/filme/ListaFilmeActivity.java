@@ -26,10 +26,10 @@ public class ListaFilmeActivity extends ActionBarActivity {
         //pega a mensagem do intent
         Intent intent = getIntent();
         String pais = intent.getStringExtra(MainActivity.PAIS);
-        String estilo = intent.getStringExtra(MainActivity.ESTILO);
+        String genero = intent.getStringExtra(MainActivity.GENERO);
         String modo = intent.getStringExtra(MainActivity.MODO);
 
-        filmes = especialista.listarGenero(estilo, pais).toArray(new Filme[0]);
+        filmes = especialista.listarGenero(genero, pais).toArray(new Filme[0]);
         String[] lista = null;
 
         if(modo.equals(MainActivity.SIMPLES)) {
@@ -40,7 +40,7 @@ public class ListaFilmeActivity extends ActionBarActivity {
             }
         }
         //cria a lista de cervejas
-        listView = (ListView) findViewById(R.id.view_lista_cerveja);
+        listView = (ListView) findViewById(R.id.view_lista_filme);
         BaseAdapter adapter;
         if(modo.equals(MainActivity.SIMPLES)) {
             adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, lista);

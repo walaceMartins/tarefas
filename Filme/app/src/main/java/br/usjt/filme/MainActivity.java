@@ -10,10 +10,10 @@ import android.widget.Spinner;
 
 public class MainActivity extends ActionBarActivity {
 
-    Spinner spinnerEstilo;
+    Spinner spinnerGenero;
     Spinner spinnerPais;
     Button btnConsultar;
-    String pais, estilo;
+    String pais, genero;
 
 
     @Override
@@ -25,31 +25,19 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setupViews() {
-        estilo = "";
+        genero = "";
         pais = "";
         btnConsultar = (Button) findViewById(R.id.botao_enviar);
-        spinnerEstilo = (Spinner) findViewById(R.id.dropdown_estilos);
-        spinnerEstilo.setOnItemSelectedListener(new EstiloSelecionado());
+        spinnerGenero = (Spinner) findViewById(R.id.dropdown_generos);
+        spinnerGenero.setOnItemSelectedListener(new GeneroSelecionado());
         spinnerPais = (Spinner) findViewById(R.id.dropdown_paises);
         spinnerPais.setOnItemSelectedListener(new PaisSelecionado());
     }
 
-    private class EstiloSelecionado implements AdapterView.OnItemSelectedListener {
+    private class GeneroSelecionado implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            estilo = (String) parent.getItemAtPosition(position);
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-
-        }
-    }
-
-    private class CorSelecionada implements AdapterView.OnItemSelectedListener {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            cor = (String) parent.getItemAtPosition(position);
+            genero = (String) parent.getItemAtPosition(position);
         }
 
         @Override
@@ -72,7 +60,7 @@ public class MainActivity extends ActionBarActivity {
 
     // constante static para identificar a mensagem
     public final static String PAIS = "br.usjt.PAIS";
-    public final static String ESTILO = "br.usjt.ESTILO";
+    public final static String GENERO = "br.usjt.GENERO";
     public final static String MODO = "br.usjt.MODO";
     public final static String SIMPLES = "br.usjt.SIMPLES";
     public final static String MELHOR = "br.usjt.MELHOR";
@@ -86,12 +74,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void consultar(View view, String modo){
-        String pEstilo = this.estilo.equals("Escolha o estilo")?"":estilo;
+        String pGenero = this.genero.equals("Escolha o genero")?"":genero;
         String pPais = this.pais.equals("Escolha o país")?"":pais;
 
         Intent intent = new Intent(this, ListaFilmeActivity.class);
         intent.putExtra(PAIS, pPais);
-        intent.putExtra(ESTILO, pEstilo);
+        intent.putExtra(GENERO, pGenero);
         intent.putExtra(MODO, modo);
         startActivity(intent);
     }

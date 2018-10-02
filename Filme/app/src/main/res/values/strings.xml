@@ -3,7 +3,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="label_filme_nome">Escolha suas opções.</string>
-    <string name="label_filme_estilo">Estilo: </string>
+    <string name="label_filme_genero">Genero: </string>
     <string name="label_filme_preco">Preço: </string>
     <string name="label_filme_pais">País: </string>
     <string name="botao_enviar">Consultar Simples</string>
@@ -29,7 +29,7 @@
         <item>Uruguai</item>
     </string-array>
 
-    <string-array name="estilos">
+    <string-array name="generos">
 
         <item>Escolha o estilo</item>
         <item>terro</item>
@@ -42,24 +42,10 @@
         <item>fantasia</item>
     </string-array>
 
-    <string-array name="cores">
+    <string name="title_activity_lista_filme">Lista de Filmes</string>
 
-        <item>Escolha a cor</item>
-        <item>amarela</item>
-        <item>amarela-palha</item>
-        <item>âmbar</item>
-        <item>cobre-claro</item>
-        <item>dourada</item>
-        <item>marrom</item>
-        <item>marrom-clara</item>
-        <item>marrom-escura</item>
-        <item>preta</item>
-        <item>preta-opaca</item>
-    </string-array>
-    <string name="title_activity_lista_cerveja">Lista de Cervejas</string>
-
-    <string name="txt_lista_cervejas">Nenhuma cerveja encontrada</string>
-    <string name="title_activity_detalhe_cerveja">Cerveja Escolhida</string>
+    <string name="txt_lista_filmes">Nenhuma filme encontrada</string>
+    <string name="title_activity_detalhe_filme">Filme Escolhida</string>
 
     <string name="botao_enviar_melhor">Consultar Melhor</string>
 

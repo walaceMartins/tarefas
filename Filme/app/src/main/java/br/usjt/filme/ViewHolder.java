@@ -3,9 +3,7 @@ package br.usjt.filme;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by asbonato on 9/7/15.
- */
+
 public class ViewHolder {
     private ImageView fotinhoFilme;
     private TextView nomeFilme, detalhesFilme;

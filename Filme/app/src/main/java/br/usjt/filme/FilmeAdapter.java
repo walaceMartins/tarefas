@@ -15,9 +15,6 @@ import java.text.NumberFormat;
 import java.util.Hashtable;
 import java.util.Locale;
 
-/**
- * Created by asbonato on 9/6/15.
- */
 public class FilmeAdapter extends BaseAdapter implements SectionIndexer
 {
     Activity context;
@@ -28,7 +25,7 @@ public class FilmeAdapter extends BaseAdapter implements SectionIndexer
 
     public FilmeAdapter(Activity context, Filme[] filmes){
         this.context = context;
-        this.cervejas = filmes;
+        this.filmes = filmes;
         sectionHeaders = SectionIndexBuilder.BuildSectionHeaders(filmes);
         positionForSectionMap = SectionIndexBuilder.BuildPositionForSectionMap(filmes);
         sectionForPositionMap = SectionIndexBuilder.BuildSectionForPositionMap(filmes);

@@ -2,22 +2,20 @@ package br.usjt.filme;
 
 import java.io.Serializable;
 
-/**
- * Created by asbonato on 9/5/15.
- */
+
 public class Filme implements Comparable<Filme>, Serializable{
     private String nome;
     private String imagem;
     private double preco;
-    private String estilo;
+    private String genero;
     private String pais;
     public static final String NAO_ENCONTRADA = "Não encontrada.";
 
-    public Filme(String nome, String estilo, String cor, String pais, String imagem, double preco) {
+    public Filme(String nome, String genero,String pais, String imagem, double preco) {
         this.nome = nome;
         this.imagem = imagem;
         this.preco = preco;
-        this.estilo = estilo;
+        this.genero = genero;
         this.pais = pais;
     }
 
@@ -33,8 +31,8 @@ public class Filme implements Comparable<Filme>, Serializable{
         return preco;
     }
 
-    public String getEstilo() {
-        return estilo;
+    public String getGenero() {
+        return genero;
     }
 
     public String getPais() {
@@ -43,11 +41,12 @@ public class Filme implements Comparable<Filme>, Serializable{
 
     @Override
     public String toString() {
-        return "br.usjt.cervejap1.Cerveja{" +
+        /*  return possivel erro */
+        return "br.usjt.filme.Filme{" +
                 "nome='" + nome + '\'' +
                 ", imagem='" + imagem + '\'' +
                 ", preco='" + preco + '\'' +
-                ", estilo='" + estilo + '\'' +
+                ", genero='" + estilo + '\'' +
                 ", pais='" + pais + '\'' +
                 '}';
     }
@@ -55,7 +54,7 @@ public class Filme implements Comparable<Filme>, Serializable{
     @Override
     public int compareTo(Filme filme) {
         if (nome.equals(filme.getNome())
-                && estilo.equals(filme.getEstilo())
+                && genero.equals(filme.getGenero())
                 && pais.equals(filme.getPais())) {
             return 0;
         }
