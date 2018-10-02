@@ -59,7 +59,7 @@ public class FilmeAdapter extends BaseAdapter implements SectionIndexer
             //um inflater transforma um layout em uma view
             LayoutInflater inflater = (LayoutInflater) context.getSystemService
                     (Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.linha_cerveja, parent, false);
+            view = inflater.inflate(R.layout.linha_filme, parent, false);
 
             ImageView fotinhoFilme = (ImageView)view.findViewById(R.id.fotinhoFilmeImageView);
             TextView nomeFilme = (TextView)view.findViewById(R.id.nomeFilmeTextView);
@@ -75,7 +75,7 @@ public class FilmeAdapter extends BaseAdapter implements SectionIndexer
         Locale locale = new Locale("pt", "BR");
         NumberFormat formatter = NumberFormat.getCurrencyInstance(locale);
         holder.getNomeFilme().setText(filmes[position].getNome());
-        holder.getDetalhesFilme().setText(String.format("%s - %s", filmes[position].getEstilo(),
+        holder.getDetalhesFilme().setText(String.format("%s - %s", filmes[position].getGenero(),
                 formatter.format(filmes[position].getPreco())));
 
         return view;
