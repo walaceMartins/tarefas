@@ -12,7 +12,7 @@ public class SectionIndexBuilder {
         ArrayList<String> results = new ArrayList<>();
         TreeSet<String> used    = new TreeSet<>();
         if(filmes != null) {
-            for (Cerveja item : filmes) {
+            for (Filme item : filmes) {
                 String letter = item.getNome().substring(0, 1);
 
                 if (!used.contains(letter))
