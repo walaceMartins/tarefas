@@ -14,7 +14,7 @@ import java.util.Locale;
 public class DetalheFilmeActivity extends ActionBarActivity {
     TextView filmeNome;
     ImageView filmeImageView;
-    TextView filmePreco;
+    TextView filmeDescricao;
     TextView filmeGenero;
     TextView filmePais;
 
@@ -36,10 +36,11 @@ public class DetalheFilmeActivity extends ActionBarActivity {
         filmeImageView = (ImageView) findViewById(R.id.filme_image_view);
         Drawable drawable = Util.getDrawable(this, filme.getImagem());
         filmeImageView.setImageDrawable(drawable);
-        filmePreco = (TextView) findViewById(R.id.txt_filme_preco);
+        filmeDescricao = (TextView) findViewById(R.id.txt_filme_descricao );
         Locale locale = new Locale("pt", "BR");
         NumberFormat formatter = NumberFormat.getCurrencyInstance(locale);
-        filmePreco.setText(""+formatter.format(Filme.getPreco()));
+        filmeDescricao= (TextView) findViewById(R.id.txt_filme_genero);
+        filmeGenero.setText(filme.getGenero());
         filmeGenero = (TextView) findViewById(R.id.txt_filme_genero);
         filmeGenero.setText(filme.getGenero());
         filmePais = (TextView) findViewById(R.id.txt_filme_pais);
