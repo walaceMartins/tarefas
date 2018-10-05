@@ -6,15 +6,15 @@ import java.io.Serializable;
 public class Filme implements Comparable<Filme>, Serializable{
     private String nome;
     private String imagem;
-    private double preco;
+    private String descricao;
     private String genero;
     private String pais;
     public static final String NAO_ENCONTRADA = "Não encontrada.";
 
-    public Filme(String nome, String genero,String pais, String imagem, double preco) {
+    public Filme(String nome, String genero,String pais, String imagem, String descricao) {
         this.nome = nome;
         this.imagem = imagem;
-        this.preco = preco;
+        this.descricao = descricao;
         this.genero = genero;
         this.pais = pais;
     }
@@ -27,8 +27,8 @@ public class Filme implements Comparable<Filme>, Serializable{
         return imagem;
     }
 
-    public double getPreco() {
-        return preco;
+    public String getDescricao() {
+        return descricao;
     }
 
     public String getGenero() {
@@ -45,8 +45,8 @@ public class Filme implements Comparable<Filme>, Serializable{
         return "br.usjt.filme.Filme{" +
                 "nome='" + nome + '\'' +
                 ", imagem='" + imagem + '\'' +
-                ", preco='" + preco + '\'' +
-                ", genero='" + estilo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", genero='" + genero + '\'' +
                 ", pais='" + pais + '\'' +
                 '}';
     }
