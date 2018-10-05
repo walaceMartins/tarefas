@@ -87,16 +87,16 @@ public class Especialista {
 
     private static ArrayList<Filme> cadastroDeFilmes() {
         ArrayList<Filme> filmes = new ArrayList<Filme>();
-        filmes.add(new Filme("Escócia", "IT a coisa", 22.99));
-        filmes.add(new Filme("Brasil", "velozes e fuiosos", 16.90));
-        filmes.add(new Filme("Estados Unidos", "velozes e fuiosos2", 21.90));
-        filmes.add(new Filme("Dinamarca", "Vingadores", 27.90));
-        filmes.add(new Filme("Brasil", "Tropa de elite2", 19.90));
-        filmes.add(new Filme("Japão""Vingadores3", 11.99));
-        filmes.add(new Filme("Alemanha", "Vizinhos", 10.99));
-        filmes.add(new Filme("Alemanha", "Vingadores2", 14.90));
-        filmes.add(new Filme("Uruguai", "A bruxa", 11.90));
-        filmes.add(new Filme("Brasil", "Tropa de elite", 8.99));
+        filmes.add(new Filme("Escócia", "IT a coisa", " filme de um palhaço que se alimenta de criança"));
+        filmes.add(new Filme("Brasil", "velozes e fuiosos", "os cara que  gosta de correr de carro"));
+        filmes.add(new Filme("Estados Unidos", "velozes e fuiosos2", "os caras estão com pressa"));
+        filmes.add(new Filme("Dinamarca", "Vingadores","uma galera com vontade de se vinga"));
+        filmes.add(new Filme("Brasil", "Tropa de elite2","rotina de policiais"));
+        filmes.add(new Filme("Japão""Vingadores3", " galera se uniram de novo para quebra o pau da barra"));
+        filmes.add(new Filme("Alemanha", "Vizinhos"," vizinhos que nao gosta um do outro"));
+        filmes.add(new Filme("Alemanha", "Vingadores2", "enfrenta um novo vilão"));
+        filmes.add(new Filme("Uruguai", "A bruxa","galerinha nao gosta de  dia das  bruxa"));
+        filmes.add(new Filme("Brasil", "Tropa de elite","pessoa  jogando merda no ventilador"));
 
         return filmes;
     }
