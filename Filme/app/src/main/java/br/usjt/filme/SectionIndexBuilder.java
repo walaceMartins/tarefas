@@ -53,7 +53,7 @@ public class SectionIndexBuilder {
         TreeSet<String> used    = new TreeSet<>();
         int section = -1;
 
-        if(cervejas != null) {
+        if(filmes != null) {
             for (int i = 0; i < filmes.length; i++) {
                 String letter = filmes[i].getNome().substring(0, 1);
 
